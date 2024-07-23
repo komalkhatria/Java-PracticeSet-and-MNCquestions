@@ -1,0 +1,616 @@
+1)
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+
+        int t=3;
+        while(t>0){
+
+            int n, rem, count=0, sum=0;
+            Scanner sc= new Scanner(System.in);
+            System.out.print("Enter the car no: ");
+            n= sc.nextInt();
+            int num=n;
+            while(n>0){
+                rem=n%10;
+                count++;
+                n=n/10;
+            }
+            int flag=0, car_num= num;
+            if(count==4){
+                while(num>0){
+                    if(num%10==3 || num%10==5 || num%10==7){
+                        flag=1;
+                    }
+                    num= num/10;
+                }
+                if(flag==1){
+                    while(car_num>0){
+                        sum = sum+ car_num%10;
+                        car_num/=10;
+                    }
+                    if(sum%3==0 || sum%5==0 || sum%7==0){
+                        System.out.println("Lucky number");
+                    }
+                    else{
+                        System.out.println("Sorry it's not my lucky number");
+                    }
+                }
+                else{
+                    System.out.println("Sorry it's not my lucky number");
+                }
+
+            }
+            else{
+                System.out.println(num + " is not a valid car number");
+            }
+
+
+            t--;
+        }
+
+
+    }
+
+}
+
+
+Output:
+Enter the car no: 1234
+Lucky number
+Enter the car no: 1214
+Sorry it's not my lucky number
+Enter the car no: 14
+14 is not a valid car number
+
+--------------------------------------------------------------------
+
+2)
+
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+
+        int t=3;
+        while(t>0){
+
+            Scanner sc= new Scanner(System.in);
+            int sal;
+            float app_rating, increment=0, final_sal;
+            System.out.print("Enter the salary: ");
+            sal= sc.nextInt();
+            System.out.print("Enter the Performance appraisal rating: ");
+            app_rating= sc.nextFloat();
+
+            if(sal<=0 || (app_rating<1 && app_rating>5)){
+                System.out.println("Invalid Input");
+            }
+            else{
+
+                if(app_rating>=1 && app_rating<=3){
+                    increment= 0.10f * sal;
+                }
+                else if(app_rating>=3.1 && app_rating<=4){
+                    increment= 0.25f * sal;
+                }
+                else if(app_rating>=4.1 && app_rating<=5){
+                    increment= 0.30f * sal;
+                }
+                final_sal= sal+ increment;
+                System.out.println((int)final_sal);
+
+            }
+
+            t--;
+        }
+
+    }
+
+}
+
+Output:
+Enter the salary: 8000
+Enter the Performance appraisal rating: 3
+8800
+Enter the salary: 7500
+Enter the Performance appraisal rating: 4.3
+9750
+Enter the salary: -5000
+Enter the Performance appraisal rating: 6
+Invalid Input
+
+--------------------------------------------------------------------
+
+3)
+
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+
+        int t=2;
+        while(t>0){
+
+            Scanner sc= new Scanner(System.in);
+            int num, rem, sum=0;
+            System.out.print("Goutam: ");
+            num= sc.nextInt();
+            int n= num;
+            if(num<0){
+                System.out.println("Invalid Input");
+            }
+            else{
+
+                while(num>0){
+                    rem= num%10;
+                    sum= sum *10 + rem;
+                    num/=10;
+                }
+                if(sum==n){
+                    System.out.println(" Palindrome");
+                }
+                else{
+                    System.out.println(" Not a palindrome");
+                }
+
+            }
+
+            t--;
+        }
+
+    }
+
+}
+
+Output:
+Goutam: 21212
+ Palindrome
+Goutam: 6186
+ Not a palindrome
+
+--------------------------------------------------------------------
+
+4)
+
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc= new Scanner(System.in);
+
+        int t=2;
+        while(t>0){
+            int r1, r2;
+            System.out.print("Enter range start: ");
+            r1= sc.nextInt();
+            System.out.print("Enter range end: ");
+            r2= sc.nextInt();
+
+
+            if(r1>=0 && r2>=0 && r2-r1>0){
+                for(int i=r1; i<=r2; i++){
+                    int flag=0;
+                    for(int j=2; j<i; j++){
+                        if(i%j==0){
+                            flag=1;
+                            break;
+                        }
+                    }
+                    if(flag==0){
+                        System.out.print(i + " ");
+                    }
+
+                }
+                System.out.println();
+
+            }
+
+            else{
+                System.out.println("Provide valid input");
+            }
+        }
+
+
+
+    }
+
+}
+
+Output:
+Enter range start: 2
+Enter range end: 15
+2 3 5 7 11 13 
+Enter range start: 8
+Enter range end: 5
+Provide valid input
+Enter range start: 
+
+--------------------------------------------------------------------
+
+5)
+
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc= new Scanner(System.in);
+
+        int t=2;
+        while(t>0){
+
+            int n;
+            String season;
+            System.out.print("Enter the month: ");
+            n= sc.nextInt();
+            if(n>=1 && n<=12){
+                if(n==3 || n==4 ||n==5){
+                    season="Spring";
+                }
+                else if(n==6 || n==7 || n==8){
+                    season="Summer";
+                }
+                else if(n==9 || n==10 || n==11){
+                    season="Autumn";
+                }
+                else{
+                    season="Winter";
+                }
+                System.out.println("Season: " + season);
+            }
+
+            else{
+                System.out.println("Invalid Month");
+            }
+
+            t--;
+        }
+    }
+}
+
+
+Output:
+Enter the month: 11
+Season: Autumn
+Enter the month: 13
+Invalid Month
+
+--------------------------------------------------------------------
+
+6)
+
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc= new Scanner(System.in);
+
+        int t=2;
+        while(t>0){
+
+            int tickets, ticket_price, ref_price=0;
+            char refreshment, coupon, circle;
+            float dis=0, cpn_dis=0, cost, dis_cost, totalCost;
+
+            System.out.print("Enter the no. of tickets: ");
+            tickets= sc.nextInt();
+            if(tickets>=5 && tickets<=40){
+
+                System.out.print("Do you want refreshment(y/n): ");
+                refreshment= sc.next().charAt(0);
+                System.out.print("Do you have coupon code(y/n): ");
+                coupon= sc.next().charAt(0);
+                System.out.print("Enter the circle(k/q): ");
+                circle= sc.next().charAt(0);
+
+                if(circle=='k'){
+                    ticket_price= 75;
+
+                    cost= tickets * ticket_price;
+
+                    if(tickets>20){
+                        dis= 0.10f * cost;
+                        cost-= dis;
+                    }
+                    if(coupon=='y'){
+                        cpn_dis= 0.02f * cost;
+                    }
+
+                    if(refreshment=='y'){
+                        ref_price=50;
+                    }
+
+                    totalCost= (cost - cpn_dis) +(ref_price*tickets);
+
+                    System.out.println("Ticket cost: " + totalCost);
+
+                }
+                else if(circle=='q'){
+                    ticket_price= 150;
+
+                    cost= tickets * ticket_price;
+
+                    if(tickets>20){
+                        dis= 0.10f * cost;
+                        cost-= dis;
+                    }
+                    if(coupon=='y'){
+                        cpn_dis= 0.02f * cost;
+                    }
+
+                    if(refreshment=='y'){
+                        ref_price=50;
+                    }
+
+                    totalCost= (cost - cpn_dis) +(ref_price*tickets);
+
+                    System.out.println("Ticket cost: " + totalCost);
+                }
+                else{
+                    System.out.println("Invalid Input");
+                }
+
+
+            }
+            else{
+                System.out.println("Minimum of 5 and Maximum of 40 Tickets");
+            }
+
+            t--;
+        }
+    }
+}
+
+
+Output:
+Enter the no. of tickets: 35
+Do you want refreshment(y/n): y
+Do you have coupon code(y/n): y
+Enter the circle(k/q): k
+Ticket cost: 4065.25
+Enter the no. of tickets: 1
+Minimum of 5 and Maximum of 40 Tickets
+
+--------------------------------------------------------------------
+
+7)
+
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc= new Scanner(System.in);
+
+        int t=4;
+        while(t>0){
+
+            int cse, ece, mech;
+            String max="none";
+            System.out.print("Enter the number of students placed in CSE: ");
+            cse= sc.nextInt();
+            System.out.print("Enter the number of students placed in ECE: ");
+            ece= sc.nextInt();
+            System.out.print("Enter the number of students placed in MECH: ");
+            mech= sc.nextInt();
+
+            if(cse<0 || ece<0 || mech<0){
+                System.out.println("Input is invalid");
+            }
+            else if(cse==ece && ece==mech){
+                System.out.println("None of the department has got the highest placement");
+            }
+            else{
+                if(cse>ece){
+                    if(cse>mech || cse==mech){
+                        max="CSE";
+                    }
+                    else{
+                        max="MECH";
+                    }
+
+                }
+                else if(ece>cse){
+                    if(ece>mech || ece==mech){
+                        max="ECE";
+                    }
+                    else{
+                        max="MECH";
+                    }
+
+                }
+                else if(cse>mech){
+                    if(cse==ece){
+                        max= "CSE";
+                    }
+                }
+                else if(ece>mech){
+                    if(ece==cse){
+                        max= "ECE";
+                    }
+                }
+                System.out.println("Highest placement\n" + max);
+            }
+	    System.out.println();
+
+            t--;
+        }
+    }
+}
+
+
+Output:
+Enter the number of students placed in CSE: 90
+Enter the number of students placed in ECE: 45
+Enter the number of students placed in MECH: 70
+Highest placement
+CSE
+
+Enter the number of students placed in CSE: 55
+Enter the number of students placed in ECE: 85
+Enter the number of students placed in MECH: 85
+Highest placement
+ECE
+
+Enter the number of students placed in CSE: 0
+Enter the number of students placed in ECE: 0
+Enter the number of students placed in MECH: 0
+None of the department has got the highest placement
+
+Enter the number of students placed in CSE: 10
+Enter the number of students placed in ECE: -50
+Enter the number of students placed in MECH: 40
+Input is invalid
+
+--------------------------------------------------------------------
+
+8)
+
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc= new Scanner(System.in);
+
+        int t=2;
+        while(t>0){
+            int n1, n2, n3, n4;
+            System.out.println("Enter the digits: ");
+            n1=sc.nextInt();
+            n2=sc.nextInt();
+            n3=sc.nextInt();
+            n4=sc.nextInt();
+
+            System.out.println(n1 + " - " + (char)n1);
+            System.out.println(n2 + " - " + (char)n2);
+            System.out.println(n3 + " - " + (char)n3);
+            System.out.println(n4 + " - " + (char)n4);
+
+
+            System.out.println();
+
+            t--;
+        }
+    }
+}
+
+
+Output:
+Enter the digits: 
+65
+66
+67
+68
+65 - A
+66 - B
+67 - C
+68 - D
+
+Enter the digits: 
+115
+116
+101
+112
+115 - s
+116 - t
+101 - e
+112 - p
+
+--------------------------------------------------------------------
+
+9)
+
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc= new Scanner(System.in);
+
+        int pizza, puffs, drinks, bill;
+        System.out.print("Enter the no of pizzas bought: ");
+        pizza= sc.nextInt();
+        System.out.print("Enter the no of puffs bought: ");
+        puffs= sc.nextInt();
+        System.out.print("Enter the no of cool drinks bought: ");
+        drinks= sc.nextInt();
+        bill= pizza*100 + puffs*20 + drinks*10;
+        System.out.println();
+        System.out.println("Bill Details");
+        System.out.println();
+        System.out.println("No of pizzas: " + pizza);
+        System.out.println("No of puffs: " + puffs);
+        System.out.println("No of cooldrinks: " + drinks);
+        System.out.println("Total price= " + bill);
+        System.out.println("ENJOY THE SHOW!!!");
+
+    }
+}
+
+
+Output:
+Enter the no of pizzas bought: 10
+Enter the no of puffs bought: 12
+Enter the no of cool drinks bought: 5
+
+Bill Details
+
+No of pizzas: 10
+No of puffs: 12
+No of cooldrinks: 5
+Total price= 1290
+ENJOY THE SHOW!!!
+
+--------------------------------------------------------------------
+
+10)
+
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc= new Scanner(System.in);
+
+        int t=3;
+        while(t>0){
+
+            int litre, distance;
+            float lpkm, mile, gallon, mpg;
+            System.out.print("Enter the no of litres to fill the tank: ");
+            litre=sc.nextInt();
+            if(litre<=0){
+                System.out.println(litre + " is an Invalid Input");
+            }
+            else{
+                System.out.print("Enter the distance covered: ");
+                distance= sc.nextInt();
+                if(distance<=0){
+                    System.out.println(distance + " is an Invalid Input");
+                }
+                else{
+                    lpkm= (litre*100.0f)/distance;
+                    mile= distance * 0.6214f;
+                    gallon= litre * 0.2642f;
+                    mpg= mile/gallon;
+                    System.out.printf("Litres/100KM: %.2f\n" ,lpkm);
+                    System.out.printf("Miles/gallons: %.2f\n" ,mpg);
+
+                }
+            }
+            System.out.println();
+
+            t--;
+        }
+
+    }
+}
+
+
+Output:
+Enter the no of litres to fill the tank: 20
+Enter the distance covered: 150
+Litres/100KM: 13.33
+Miles/gallons: 17.64
+
+Enter the no of litres to fill the tank: -5
+-5 is an Invalid Input
+
+Enter the no of litres to fill the tank: 25
+Enter the distance covered: -21
+-21 is an Invalid Input
